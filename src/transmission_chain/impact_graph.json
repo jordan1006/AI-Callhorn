@@ -1,0 +1,274 @@
+{
+  "version": "1.0",
+  "description": "Global Resource Price Transmission Chain - Impact Graph",
+  "nodes": {
+    "war": {
+      "name": "戰爭/地緣風險",
+      "category": "macro_event",
+      "description": "區域衝突、戰爭風險升級"
+    },
+    "shipping": {
+      "name": "航運",
+      "category": "sector",
+      "description": "航運股價走勢"
+    },
+    "oil": {
+      "name": "石油",
+      "category": "commodity",
+      "description": "原油價格（WTI/Brent）"
+    },
+    "natural_gas": {
+      "name": "天然氣",
+      "category": "commodity",
+      "description": "天然氣價格"
+    },
+    "inflation_expectation": {
+      "name": "通膨預期",
+      "category": "macro_indicator",
+      "description": "市場通膨預期指標"
+    },
+    "bond_yield": {
+      "name": "債券殖利率",
+      "category": "macro_indicator",
+      "description": "美國10年期公債殖利率"
+    },
+    "fed_rate": {
+      "name": "聯準會利率",
+      "category": "policy",
+      "description": "Fed 利率決策"
+    },
+    "usd_index": {
+      "name": "美元指數",
+      "category": "currency",
+      "description": "DXY 美元指數"
+    },
+    "twd_usd": {
+      "name": "台幣匯率",
+      "category": "currency",
+      "description": "台幣兌美元"
+    },
+    "gold": {
+      "name": "黃金",
+      "category": "commodity",
+      "description": "黃金價格"
+    },
+    "silver": {
+      "name": "白銀",
+      "category": "commodity",
+      "description": "白銀價格"
+    },
+    "copper": {
+      "name": "銅",
+      "category": "commodity",
+      "description": "銅價"
+    },
+    "tech_stock": {
+      "name": "科技股",
+      "category": "sector",
+      "description": "科技類股走勢"
+    },
+    "semiconductor": {
+      "name": "半導體",
+      "category": "sector",
+      "description": "半導體產業"
+    },
+    "financial": {
+      "name": "金融股",
+      "category": "sector",
+      "description": "金融類股"
+    },
+    "defense": {
+      "name": "軍工",
+      "category": "sector",
+      "description": "國防/軍工類股"
+    },
+    "bitcoin": {
+      "name": "比特幣",
+      "category": "crypto",
+      "description": "比特幣價格"
+    },
+    "real_estate_tw": {
+      "name": "台灣房市",
+      "category": "real_estate",
+      "description": "台灣房地產"
+    },
+    "mortgage_rate": {
+      "name": "房貸利率",
+      "category": "interest_rate",
+      "description": "台灣房貸利率"
+    },
+    "tqqq": {
+      "name": "TQQQ",
+      "category": "leverage_etf",
+      "description": "納指三倍槓桿 ETF"
+    },
+    "taiwan_plus": {
+      "name": "正二 (0050)",
+      "category": "leverage_etf",
+      "description": "台灣加權指數槓桿 ETF"
+    }
+  },
+  "edges": [
+    {
+      "from": "war",
+      "to": "shipping",
+      "weight": 0.9,
+      "label": "供應鏈中斷風險"
+    },
+    {
+      "from": "war",
+      "to": "oil",
+      "weight": 0.85,
+      "label": "能源供應擔憂"
+    },
+    {
+      "from": "war",
+      "to": "defense",
+      "weight": 0.8,
+      "label": "國防預算增加預期"
+    },
+    {
+      "from": "shipping",
+      "to": "oil",
+      "weight": 0.75,
+      "label": "運費成本支撐"
+    },
+    {
+      "from": "oil",
+      "to": "inflation_expectation",
+      "weight": 0.8,
+      "label": "能源成本推動通膨"
+    },
+    {
+      "from": "natural_gas",
+      "to": "inflation_expectation",
+      "weight": 0.7,
+      "label": "天然氣價格影響"
+    },
+    {
+      "from": "inflation_expectation",
+      "to": "bond_yield",
+      "weight": 0.85,
+      "label": "通膨預期推動殖利率"
+    },
+    {
+      "from": "bond_yield",
+      "to": "fed_rate",
+      "weight": 0.7,
+      "label": "市場預期 Fed 政策"
+    },
+    {
+      "from": "fed_rate",
+      "to": "usd_index",
+      "weight": 0.8,
+      "label": "利差影響美元"
+    },
+    {
+      "from": "usd_index",
+      "to": "twd_usd",
+      "weight": 0.9,
+      "label": "美元走勢影響台幣"
+    },
+    {
+      "from": "usd_index",
+      "to": "gold",
+      "weight": -0.75,
+      "label": "美元貶值支撐金價"
+    },
+    {
+      "from": "usd_index",
+      "to": "bitcoin",
+      "weight": -0.65,
+      "label": "美元貶值支撐比特幣"
+    },
+    {
+      "from": "gold",
+      "to": "silver",
+      "weight": 0.85,
+      "label": "貴金屬連動"
+    },
+    {
+      "from": "copper",
+      "to": "inflation_expectation",
+      "weight": 0.6,
+      "label": "工業金屬反映景氣"
+    },
+    {
+      "from": "bond_yield",
+      "to": "tech_stock",
+      "weight": -0.7,
+      "label": "殖利率上升壓抑科技股"
+    },
+    {
+      "from": "fed_rate",
+      "to": "tech_stock",
+      "weight": -0.65,
+      "label": "升息循環影響"
+    },
+    {
+      "from": "tech_stock",
+      "to": "semiconductor",
+      "weight": 0.9,
+      "label": "科技股帶動半導體"
+    },
+    {
+      "from": "bond_yield",
+      "to": "financial",
+      "weight": 0.6,
+      "label": "殖利率有利金融業"
+    },
+    {
+      "from": "fed_rate",
+      "to": "financial",
+      "weight": 0.7,
+      "label": "升息有利銀行存放款"
+    },
+    {
+      "from": "twd_usd",
+      "to": "taiwan_plus",
+      "weight": 0.85,
+      "label": "台幣貶值影響出口族群"
+    },
+    {
+      "from": "twd_usd",
+      "to": "real_estate_tw",
+      "weight": -0.5,
+      "label": "台幣貶值吸引資金入房市"
+    },
+    {
+      "from": "fed_rate",
+      "to": "mortgage_rate",
+      "weight": 0.75,
+      "label": "Fed 利率影響全球利率走向"
+    },
+    {
+      "from": "semiconductor",
+      "to": "tqqq",
+      "weight": 0.85,
+      "label": "半導體帶動 Nasdaq"
+    },
+    {
+      "from": "tech_stock",
+      "to": "tqqq",
+      "weight": 0.95,
+      "label": "科技股領漲帶動 TQQQ"
+    },
+    {
+      "from": "taiwan_plus",
+      "to": "twd_usd",
+      "weight": 0.6,
+      "label": "電子股出口支撐台幣"
+    }
+  ],
+  "priced_in_markers": {
+    "war": ["2022-02-24", "2022-09-30"],
+    "oil": ["2022-03-01", "2022-06-01"],
+    "fed_rate": ["2022-03-16", "2023-07-26"],
+    "inflation_expectation": ["2022-06-01"]
+  },
+  "notes": {
+    "weight_interpretation": "正值表示正相關，負值表示負相關",
+    "priced_in": "已標記日期表示市場已大致反映此因素",
+    "update_frequency": "每日更新傳導係數"
+  }
+}
