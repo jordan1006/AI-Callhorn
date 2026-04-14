@@ -1,7 +1,7 @@
 # Financial-Inverse-Engine Dependencies
 
 # Core
-python>=3.12
+#python>=3.12
 pydantic>=2.0
 
 # HTTP & APIs
