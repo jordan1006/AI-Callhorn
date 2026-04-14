@@ -1,0 +1,141 @@
+{
+  "updated_at": "2026-04-14T21:09:54.837844",
+  "prices": {
+    "CL=F": 95.8499984741211,
+    "GC=F": 4792.7998046875,
+    "SI=F": 77.67500305175781,
+    "HG=F": 6.069499969482422,
+    "DX-Y.NYB": 97.99700164794922,
+    "BTC-USD": 74601.2265625,
+    "TQQQ": 50.65999984741211,
+    "0050.TW": 83.0999984741211
+  },
+  "impacts": {
+    "war->shipping": {
+      "weight": 0.9,
+      "direction": "positive",
+      "strength": 0.9
+    },
+    "war->oil": {
+      "weight": 0.85,
+      "direction": "positive",
+      "strength": 0.85
+    },
+    "war->defense": {
+      "weight": 0.8,
+      "direction": "positive",
+      "strength": 0.8
+    },
+    "shipping->oil": {
+      "weight": 0.75,
+      "direction": "positive",
+      "strength": 0.75
+    },
+    "oil->inflation_expectation": {
+      "weight": 0.8,
+      "direction": "positive",
+      "strength": 0.8
+    },
+    "natural_gas->inflation_expectation": {
+      "weight": 0.7,
+      "direction": "positive",
+      "strength": 0.7
+    },
+    "inflation_expectation->bond_yield": {
+      "weight": 0.85,
+      "direction": "positive",
+      "strength": 0.85
+    },
+    "bond_yield->fed_rate": {
+      "weight": 0.7,
+      "direction": "positive",
+      "strength": 0.7
+    },
+    "fed_rate->usd_index": {
+      "weight": 0.8,
+      "direction": "positive",
+      "strength": 0.8
+    },
+    "usd_index->twd_usd": {
+      "weight": 0.9,
+      "direction": "positive",
+      "strength": 0.9
+    },
+    "usd_index->gold": {
+      "weight": -0.75,
+      "direction": "negative",
+      "strength": 0.75
+    },
+    "usd_index->bitcoin": {
+      "weight": -0.65,
+      "direction": "negative",
+      "strength": 0.65
+    },
+    "gold->silver": {
+      "weight": 0.85,
+      "direction": "positive",
+      "strength": 0.85
+    },
+    "copper->inflation_expectation": {
+      "weight": 0.6,
+      "direction": "positive",
+      "strength": 0.6
+    },
+    "bond_yield->tech_stock": {
+      "weight": -0.7,
+      "direction": "negative",
+      "strength": 0.7
+    },
+    "fed_rate->tech_stock": {
+      "weight": -0.65,
+      "direction": "negative",
+      "strength": 0.65
+    },
+    "tech_stock->semiconductor": {
+      "weight": 0.9,
+      "direction": "positive",
+      "strength": 0.9
+    },
+    "bond_yield->financial": {
+      "weight": 0.6,
+      "direction": "positive",
+      "strength": 0.6
+    },
+    "fed_rate->financial": {
+      "weight": 0.7,
+      "direction": "positive",
+      "strength": 0.7
+    },
+    "twd_usd->taiwan_plus": {
+      "weight": 0.85,
+      "direction": "positive",
+      "strength": 0.85
+    },
+    "twd_usd->real_estate_tw": {
+      "weight": -0.5,
+      "direction": "negative",
+      "strength": 0.5
+    },
+    "fed_rate->mortgage_rate": {
+      "weight": 0.75,
+      "direction": "positive",
+      "strength": 0.75
+    },
+    "semiconductor->tqqq": {
+      "weight": 0.85,
+      "direction": "positive",
+      "strength": 0.85
+    },
+    "tech_stock->tqqq": {
+      "weight": 0.95,
+      "direction": "positive",
+      "strength": 0.95
+    },
+    "taiwan_plus->twd_usd": {
+      "weight": 0.6,
+      "direction": "positive",
+      "strength": 0.6
+    }
+  },
+  "new_priced_in": []
+}

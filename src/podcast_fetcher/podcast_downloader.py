@@ -49,17 +49,32 @@ class PodcastDownloader:
             return self._fetch_transcript_manual(video_id)
             
         try:
-            transcript = YouTubeTranscriptApi.get_transcript(
-                video_id,
-                languages=['zh-TW', 'zh', 'en']
-            )
+            from youtube_transcript_api import YouTubeTranscriptApi
+            
+            # 實例化並調用 list 方法
+            api = YouTubeTranscriptApi()
+            transcript_list = api.list(video_id=video_id)
+            
+            # 嘗試取得中文或英文 transcript
+            transcript = transcript_list.find_transcript(['zh-TW', 'zh', 'en'])
+            fetched_transcript = transcript.fetch()
+            
+            # 轉換為列表格式
+            items = []
+            for item in fetched_transcript:
+                items.append({
+                    'text': item.text,
+                    'start': item.start,
+                    'duration': item.duration
+                })
+            
             return {
                 "video_id": video_id,
-                "transcript": transcript,
+                "transcript": items,
                 "fetched_at": datetime.now().isoformat()
             }
         except Exception as e:
-            print(f"Error fetching transcript for {video_id}: {e}")
+            print(f"Error fetch_transcript: {e}")
             return None
             
     def _fetch_transcript_manual(self, video_id: str) -> Optional[dict]:
